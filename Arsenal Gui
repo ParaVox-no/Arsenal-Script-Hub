@@ -1,0 +1,543 @@
+local ExploitGui = Instance.new("ScreenGui")
+local Holder = Instance.new("Frame")
+local Catagoreys = Instance.new("Frame")
+local Main = Instance.new("TextButton")
+local touch_app = Instance.new("ImageButton")
+local Pattern = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local Version = Instance.new("TextLabel")
+local ScriptHolder = Instance.new("Frame")
+local BiggerHitBox = Instance.new("TextButton")
+local touch_app_2 = Instance.new("ImageButton")
+local AlwaysBackStab = Instance.new("TextButton")
+local touch_app_3 = Instance.new("ImageButton")
+local KillAll = Instance.new("TextButton")
+local touch_app_4 = Instance.new("ImageButton")
+local SilentAim = Instance.new("TextButton")
+local touch_app_5 = Instance.new("ImageButton")
+local ESP = Instance.new("TextButton")
+local touch_app_6 = Instance.new("ImageButton")
+local UIListLayout = Instance.new("UIListLayout")
+ 
+ExploitGui.Name = "ExploitGui"
+ExploitGui.Parent = game.CoreGui
+ExploitGui.Active = true
+
+Holder.Name = "Holder"
+Holder.Parent = ExploitGui
+Holder.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+Holder.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+Holder.BorderSizePixel = 0
+Holder.Position = UDim2.new(0.336377472, 0, 0.117546849, 0)
+Holder.Size = UDim2.new(0, 492, 0, 448)
+
+Catagoreys.Name = "Catagoreys"
+Catagoreys.Parent = Holder
+Catagoreys.BackgroundColor3 = Color3.new(0.164706, 0.164706, 0.164706)
+Catagoreys.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+Catagoreys.BorderSizePixel = 0
+Catagoreys.Position = UDim2.new(0.0503310077, 0, 0.209064692, 0)
+Catagoreys.Size = UDim2.new(0, 155, 0, 337)
+Catagoreys.ZIndex = 2
+
+Main.Name = "Main"
+Main.Parent = Catagoreys
+Main.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+Main.Position = UDim2.new(0.05859375, 0, 0.0454494134, 0)
+Main.Size = UDim2.new(0, 136, 0, 35)
+Main.ZIndex = 2
+Main.Font = Enum.Font.SourceSansBold
+Main.Text = "Main"
+Main.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+Main.TextSize = 25
+local UIS = game:GetService("UserInputService")
+function dragify(Frame)
+	dragToggle = nil
+	local dragSpeed = 0
+	dragInput = nil
+	dragStart = nil
+	local dragPos = nil
+	function updateInput(input)
+		local Delta = input.Position - dragStart
+		local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	end
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	Frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if input == dragInput and dragToggle then
+			updateInput(input)
+		end
+	end)
+end
+
+dragify(Main)
+
+touch_app.Name = "touch_app"
+touch_app.Parent = Main
+touch_app.BackgroundTransparency = 1
+touch_app.LayoutOrder = 5
+touch_app.Position = UDim2.new(0.0353425145, 0, -0.00632750988, 0)
+touch_app.Size = UDim2.new(0, 31, 0, 29)
+touch_app.ZIndex = 3
+touch_app.Image = "rbxassetid://3926305904"
+touch_app.ImageRectOffset = Vector2.new(84, 204)
+touch_app.ImageRectSize = Vector2.new(36, 36)
+
+Pattern.Name = "Pattern"
+Pattern.Parent = Holder
+Pattern.AnchorPoint = Vector2.new(0.5, 0.5)
+Pattern.BackgroundColor3 = Color3.new(1, 1, 1)
+Pattern.BackgroundTransparency = 1
+Pattern.Position = UDim2.new(0.499926805, 0, 0.5, 0)
+Pattern.Size = UDim2.new(0, 491, 0, 448)
+Pattern.Image = "rbxassetid://121480522"
+Pattern.ImageTransparency = 0.60000002384186
+Pattern.ScaleType = Enum.ScaleType.Tile
+Pattern.SliceCenter = Rect.new(0, 256, 0, 256)
+Pattern.TileSize = UDim2.new(0, 45, 0, 45)
+
+Title.Name = "Title"
+Title.Parent = Holder
+Title.BackgroundColor3 = Color3.new(1, 1, 1)
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(-0.00465116277, 0, 1.86264515e-09, 0)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.Gotham
+Title.Text = "Arsenal Script Hub"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 20
+Title.TextWrapped = true
+
+Version.Name = "Version"
+Version.Parent = Holder
+Version.BackgroundColor3 = Color3.new(1, 1, 1)
+Version.BackgroundTransparency = 1
+Version.Position = UDim2.new(-0.00465116277, 0, 0.051339291, 0)
+Version.Size = UDim2.new(0, 200, 0, 50)
+Version.Font = Enum.Font.Gotham
+Version.Text = "v1.0"
+Version.TextColor3 = Color3.new(0.67451, 0.67451, 0.223529)
+Version.TextSize = 20
+Version.TextWrapped = true
+
+ScriptHolder.Name = "ScriptHolder"
+ScriptHolder.Parent = Holder
+ScriptHolder.BackgroundColor3 = Color3.new(0.164706, 0.164706, 0.164706)
+ScriptHolder.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+ScriptHolder.BorderSizePixel = 0
+ScriptHolder.Position = UDim2.new(0.43447727, 0, 0.0513392873, 0)
+ScriptHolder.Size = UDim2.new(0, 256, 0, 407)
+
+BiggerHitBox.Name = "BiggerHitBox"
+BiggerHitBox.Parent = ScriptHolder
+BiggerHitBox.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+BiggerHitBox.Position = UDim2.new(0.05859375, 0, 0.139474317, 0)
+BiggerHitBox.Size = UDim2.new(0, 225, 0, 35)
+BiggerHitBox.ZIndex = 2
+BiggerHitBox.Font = Enum.Font.SourceSansBold
+BiggerHitBox.Text = "Bigger Hitboxes"
+BiggerHitBox.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+BiggerHitBox.TextSize = 25
+BiggerHitBox.MouseButton1Click:Connect(function()
+	-- thanks to JasonJJK on v3rm for helping me improve this script!
+
+	hitboxSize = 13 -- Change hitbox size here
+	visiblity = 10 -- 10 for invisible, 0 for visible
+
+
+	local function expandHitbox(target) -- expand hitbox function (basic)  
+		-- Prevent errors by waiting until everything loads in for the target
+		repeat wait() until target.Character
+		repeat wait() until target.Character:FindFirstChild("HeadHB")
+		repeat wait() until target.Character:FindFirstChild("HumanoidRootPart")
+
+		-- expand hitbox
+		target.Character.HeadHB.Size = Vector3.new(hitboxSize,hitboxSize,hitboxSize)
+		target.Character.HeadHB.CanCollide = false
+		target.Character.HeadHB.Transparency = visiblity
+		target.Character.HumanoidRootPart.Size = Vector3.new(hitboxSize,hitboxSize,hitboxSize)
+		target.Character.HumanoidRootPart.CanCollide = false
+		target.Character.HumanoidRootPart.Transparency = visiblity
+		target.Character.RightUpperLeg.Size = Vector3.new(hitboxSize,hitboxSize,hitboxSize)
+		target.Character.RightUpperLeg.CanCollide = false
+		target.Character.RightUpperLeg.Transparency = 10
+		target.Character.LeftUpperLeg.CanCollide = false
+		target.Character.LeftUpperLeg.Size = Vector3.new(hitboxSize,hitboxSize,hitboxSize)
+		target.Character.LeftUpperLeg.Transparency = 10
+	end
+
+	-- What players do we do this to?
+
+	for i,v in pairs(game.Players:GetPlayers()) do --exisiting players
+		if v ~= game:GetService("Players").LocalPlayer and v.Character then
+			expandHitbox(v)
+			v.CharacterAdded:Connect(function(character)
+				expandHitbox(character)
+			end)
+		end
+end
+touch_app_2.Name = "touch_app"
+touch_app_2.Parent = BiggerHitBox
+touch_app_2.BackgroundTransparency = 1
+touch_app_2.LayoutOrder = 5
+touch_app_2.Position = UDim2.new(0.0353425145, 0, -0.00632750988, 0)
+touch_app_2.Size = UDim2.new(0, 31, 0, 29)
+touch_app_2.ZIndex = 3
+touch_app_2.Image = "rbxassetid://3926305904"
+touch_app_2.ImageRectOffset = Vector2.new(84, 204)
+touch_app_2.ImageRectSize = Vector2.new(36, 36)
+
+AlwaysBackStab.Name = "WallBang"
+AlwaysBackStab.Parent = ScriptHolder
+AlwaysBackStab.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+AlwaysBackStab.Position = UDim2.new(0.05859375, 0, 0.204206437, 0)
+AlwaysBackStab.Size = UDim2.new(0, 225, 0, 35)
+AlwaysBackStab.ZIndex = 2
+AlwaysBackStab.Font = Enum.Font.SourceSansBold
+AlwaysBackStab.Text = "WallBang"
+AlwaysBackStab.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+AlwaysBackStab.TextSize = 25
+AlwaysBackStab.MouseButton1Click:Connect(function()
+	_G.Enable = true
+	local MT = getrawmetatable(game)
+	local OldIndex = MT.__index
+	setreadonly(MT, false)
+	MT.__index = newcclosure(function(A, B)
+		if B == "Clips" then
+			if _G.Enable then
+				return workspace.Map
+			end
+		end
+		return OldIndex(A, B)
+	end)
+	game:GetService("UserInputService").InputBegan:Connect(function(Key, _)
+		if not _ and Key.KeyCode == Enum.KeyCode.T then
+			_G.Enable = not _G.Enable
+		end
+	end)
+end)
+
+touch_app_3.Name = "touch_app"
+touch_app_3.Parent = AlwaysBackStab
+touch_app_3.BackgroundTransparency = 1
+touch_app_3.LayoutOrder = 5
+touch_app_3.Position = UDim2.new(0.0353425145, 0, -0.00632750988, 0)
+touch_app_3.Size = UDim2.new(0, 31, 0, 29)
+touch_app_3.ZIndex = 3
+touch_app_3.Image = "rbxassetid://3926305904"
+touch_app_3.ImageRectOffset = Vector2.new(84, 204)
+touch_app_3.ImageRectSize = Vector2.new(36, 36)
+
+KillAll.Name = "Kill All"
+KillAll.Parent = ScriptHolder
+KillAll.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+KillAll.Position = UDim2.new(0.05859375, 0, 0.264474303, 0)
+KillAll.Size = UDim2.new(0, 225, 0, 35)
+KillAll.ZIndex = 2
+KillAll.Font = Enum.Font.SourceSansBold
+KillAll.Text = "Kill All"
+KillAll.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+KillAll.TextSize = 25
+KillAll.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/prestigedwinning/arsenalcool/main/ewf", true))()
+end)
+
+touch_app_4.Name = "touch_app"
+touch_app_4.Parent = KillAll
+touch_app_4.BackgroundTransparency = 1
+touch_app_4.LayoutOrder = 5
+touch_app_4.Position = UDim2.new(0.0353425145, 0, -0.00632750988, 0)
+touch_app_4.Size = UDim2.new(0, 31, 0, 29)
+touch_app_4.ZIndex = 3
+touch_app_4.Image = "rbxassetid://3926305904"
+touch_app_4.ImageRectOffset = Vector2.new(84, 204)
+touch_app_4.ImageRectSize = Vector2.new(36, 36)
+
+SilentAim.Name = "SilentAim"
+SilentAim.Parent = ScriptHolder
+SilentAim.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+SilentAim.Position = UDim2.new(0.05859375, 0, 0.0167064499, 0)
+SilentAim.Size = UDim2.new(0, 225, 0, 35)
+SilentAim.ZIndex = 2
+SilentAim.Font = Enum.Font.SourceSansBold
+SilentAim.Text = "Silent Aim"
+SilentAim.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+SilentAim.TextSize = 25
+SilentAim.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/DUeHdyvk", true))()
+end)
+
+touch_app_5.Name = "touch_app"
+touch_app_5.Parent = SilentAim
+touch_app_5.BackgroundTransparency = 1
+touch_app_5.LayoutOrder = 5
+touch_app_5.Position = UDim2.new(0.0353425145, 0, 0.079386726, 0)
+touch_app_5.Size = UDim2.new(0, 31, 0, 29)
+touch_app_5.ZIndex = 2
+touch_app_5.Image = "rbxassetid://3926305904"
+touch_app_5.ImageRectOffset = Vector2.new(84, 204)
+touch_app_5.ImageRectSize = Vector2.new(36, 36)
+
+ESP.Name = "ESP"
+ESP.Parent = ScriptHolder
+ESP.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+ESP.Position = UDim2.new(0.05859375, 0, 0.0780903772, 0)
+ESP.Size = UDim2.new(0, 225, 0, 35)
+ESP.ZIndex = 2
+ESP.Font = Enum.Font.SourceSansBold
+ESP.Text = "ESP"
+ESP.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+ESP.TextSize = 25
+ESP.MouseButton1Click:Connect(function()
+	--// Settings:
+	local Box_Color = Color3.fromRGB(255, 0, 0)
+	local Tracer_Color = Color3.fromRGB(255, 0, 0)
+	local HealthBar_Color = Color3.fromRGB(0, 255, 0)
+
+	local Tracer_Thickness = 1
+	local Box_Thickness = 2
+
+	local teamcheck = {
+		teamcheck = true,
+		green = Color3.fromRGB(161, 242, 19),
+		red = Color3.fromRGB(245, 69, 5)
+	}
+
+	--//Locals
+	local plr = game.Players.LocalPlayer
+	local camera = game.Workspace.CurrentCamera
+
+	local function NewQuad(thickness, color)
+		local quad = Drawing.new("Quad")
+		quad.Visible = false
+		quad.PointA = Vector2.new(0,0)
+		quad.PointB = Vector2.new(0,0)
+		quad.PointC = Vector2.new(0,0)
+		quad.PointD = Vector2.new(0,0)
+		quad.Color = color
+		quad.Filled = false
+		quad.Thickness = thickness
+		quad.Transparency = 1
+		return quad
+	end
+
+	local function NewLine(thickness, color)
+		local line = Drawing.new("Line")
+		line.Visible = false
+		line.From = Vector2.new(0, 0)
+		line.To = Vector2.new(0, 0)
+		line.Color = color
+		line.Thickness = thickness
+		line.Transparency = 1
+		return line
+	end
+
+	local black = Color3.fromRGB(0, 0, 0)
+
+	for i, v in pairs(game.Players:GetChildren()) do
+		local library = {
+			--//Tracer and Black Tracer(black border)
+			blacktracer = NewLine(Tracer_Thickness*2, black),
+			tracer = NewLine(Tracer_Thickness, Tracer_Color),
+			--//Box and Black Box(black border)
+			black = NewQuad(Box_Thickness*2, black),
+			box = NewQuad(Box_Thickness, Box_Color),
+			--//Bar and Green Health Bar (part that moves up/down)
+			healthbar = NewLine(8, black),
+			greenhealth = NewLine(4, HealthBar_Color)
+		}
+
+		local function Visibility(state)
+			for u, x in pairs(library) do
+				x.Visible = state
+			end
+		end
+
+		local function ESP()
+			local connection
+			connection = game:GetService("RunService").RenderStepped:Connect(function()
+				if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Name ~= plr.Name and v.Character.Humanoid.Health > 0 and v.Character:FindFirstChild("Head") ~= nil then
+					local ScreenPos, OnScreen = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+					if OnScreen then
+						local head = camera:WorldToViewportPoint(v.Character.Head.Position)
+						local rootpos = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+						local ratio = math.clamp((Vector2.new(head.X, head.Y) - Vector2.new(rootpos.X, rootpos.Y)).magnitude, 2, math.huge)
+
+						local head2 = camera:WorldToViewportPoint(Vector3.new(v.Character.Head.Position.X, v.Character.Head.Position.Y + 2, v.Character.Head.Position.Z))
+
+						local root2 = camera:WorldToViewportPoint(Vector3.new(v.Character.Head.Position.X, v.Character.HumanoidRootPart.Position.Y - 3, v.Character.Head.Position.Z))
+
+						library.black.PointA = Vector2.new(head2.X + ratio*1.6, head2.Y - ratio*0.05)
+						library.black.PointB = Vector2.new(head2.X - ratio*1.6, head2.Y - ratio*0.05)
+						library.black.PointC = Vector2.new(head2.X - ratio*1.6, root2.Y + ratio*0.5)
+						library.black.PointD = Vector2.new(head2.X + ratio*1.6, root2.Y + ratio*0.5)
+
+						library.box.PointA = Vector2.new(head2.X + ratio*1.6, head2.Y - ratio*0.05)
+						library.box.PointB = Vector2.new(head2.X - ratio*1.6, head2.Y - ratio*0.05)
+						library.box.PointC = Vector2.new(head2.X - ratio*1.6, root2.Y + ratio*0.5)
+						library.box.PointD = Vector2.new(head2.X + ratio*1.6, root2.Y + ratio*0.5)
+
+						library.tracer.To = Vector2.new(root2.X, root2.Y + ratio*0.5)
+						library.tracer.From = Vector2.new(camera.ViewportSize.X*0.5, camera.ViewportSize.Y)
+
+						library.blacktracer.To = Vector2.new(root2.X, root2.Y + ratio*0.5)
+						library.blacktracer.From = Vector2.new(camera.ViewportSize.X*0.5, camera.ViewportSize.Y)
+
+						local d = (Vector2.new(head2.X - ratio*1.8, head2.Y - ratio*0.05) - Vector2.new(root2.X - ratio*1.8, root2.Y + ratio*0.5)).magnitude
+						local green = (100-v.Character.Humanoid.Health) *d /100
+
+						library.greenhealth.Thickness = math.clamp(ratio/4, 1, 4)
+						library.healthbar.Thickness = math.clamp(ratio * 1.2 / 4, 1.5, 6)
+
+						library.healthbar.To = Vector2.new(head2.X - ratio*1.8, head2.Y - ratio*0.05)
+						library.healthbar.From = Vector2.new(head2.X - ratio*1.8, root2.Y + ratio*0.5)
+
+						library.greenhealth.To = Vector2.new(head2.X - ratio*1.8, head2.Y + green - ratio*0.05)
+						library.greenhealth.From = Vector2.new(head2.X - ratio*1.8, root2.Y + ratio*0.5)
+
+						if teamcheck.teamcheck == true then
+							if v.TeamColor == plr.TeamColor then
+								library.box.Color = teamcheck.green
+								library.tracer.Color = teamcheck.green
+							else 
+								library.box.Color = teamcheck.red
+								library.tracer.Color = teamcheck.red
+							end
+						end
+
+						Visibility(true)
+					else 
+						Visibility(false)
+					end
+				else 
+					Visibility(false)
+					if game.Players:FindFirstChild(v.Name) == nil then
+						connection:Disconnect()
+					end
+				end
+			end)
+		end
+		coroutine.wrap(ESP)()
+	end
+
+	game.Players.PlayerAdded:Connect(function(newplr) --Parameter gets the new player that has been added
+		local library = {
+			--//Tracer and Black Tracer(black border)
+			blacktracer = NewLine(Tracer_Thickness*2, black),
+			tracer = NewLine(Tracer_Thickness, Tracer_Color),
+			--//Box and Black Box(black border)
+			black = NewQuad(Box_Thickness*2, black),
+			box = NewQuad(Box_Thickness, Box_Color),
+			--//Bar and Green Health Bar (part that moves up/down)
+			healthbar = NewLine(8, black),
+			greenhealth = NewLine(4, HealthBar_Color)
+		}
+
+		local function Visibility(state)
+			for u, x in pairs(library) do
+				x.Visible = state
+			end
+		end
+
+		local function ESP()
+			local connection
+			connection = game:GetService("RunService").RenderStepped:Connect(function()
+				if newplr.Character ~= nil and newplr.Character:FindFirstChild("Humanoid") ~= nil and newplr.Character:FindFirstChild("HumanoidRootPart") ~= nil and newplr.Name ~= plr.Name and newplr.Character.Humanoid.Health > 0 and newplr.Character:FindFirstChild("Head") ~= nil then
+					local ScreenPos, OnScreen = camera:WorldToViewportPoint(newplr.Character.HumanoidRootPart.Position)
+					if OnScreen then
+						local head = camera:WorldToViewportPoint(newplr.Character.Head.Position)
+						local rootpos = camera:WorldToViewportPoint(newplr.Character.HumanoidRootPart.Position)
+
+						local ratio = math.clamp((Vector2.new(head.X, head.Y) - Vector2.new(rootpos.X, rootpos.Y)).magnitude, 2, math.huge)
+
+						local head2 = camera:WorldToViewportPoint(Vector3.new(newplr.Character.Head.Position.X, newplr.Character.Head.Position.Y + 2, newplr.Character.Head.Position.Z))
+
+						local root2 = camera:WorldToViewportPoint(Vector3.new(newplr.Character.Head.Position.X, newplr.Character.HumanoidRootPart.Position.Y - 3, newplr.Character.Head.Position.Z))
+
+						library.black.PointA = Vector2.new(head2.X + ratio*1.6, head2.Y - ratio*0.05)
+						library.black.PointB = Vector2.new(head2.X - ratio*1.6, head2.Y - ratio*0.05)
+						library.black.PointC = Vector2.new(head2.X - ratio*1.6, root2.Y + ratio*0.5)
+						library.black.PointD = Vector2.new(head2.X + ratio*1.6, root2.Y + ratio*0.5)
+
+						library.box.PointA = Vector2.new(head2.X + ratio*1.6, head2.Y - ratio*0.05)
+						library.box.PointB = Vector2.new(head2.X - ratio*1.6, head2.Y - ratio*0.05)
+						library.box.PointC = Vector2.new(head2.X - ratio*1.6, root2.Y + ratio*0.5)
+						library.box.PointD = Vector2.new(head2.X + ratio*1.6, root2.Y + ratio*0.5)
+
+						library.tracer.To = Vector2.new(root2.X, root2.Y + ratio*0.5)
+						library.tracer.From = Vector2.new(camera.ViewportSize.X*0.5, camera.ViewportSize.Y)
+
+						library.blacktracer.To = Vector2.new(root2.X, root2.Y + ratio*0.5)
+						library.blacktracer.From = Vector2.new(camera.ViewportSize.X*0.5, camera.ViewportSize.Y)
+
+						local d = (Vector2.new(head2.X - ratio*1.8, head2.Y - ratio*0.05) - Vector2.new(root2.X - ratio*1.8, root2.Y + ratio*0.5)).magnitude
+						local green = (100-newplr.Character.Humanoid.Health) *d /100
+
+						library.greenhealth.Thickness = math.clamp(ratio/4, 1, 4)
+						library.healthbar.Thickness = math.clamp(ratio * 1.2 / 4, 1.5, 6)
+
+						library.healthbar.To = Vector2.new(head2.X - ratio*1.8, head2.Y - ratio*0.05)
+						library.healthbar.From = Vector2.new(head2.X - ratio*1.8, root2.Y + ratio*0.5)
+
+						library.greenhealth.To = Vector2.new(head2.X - ratio*1.8, head2.Y + green - ratio*0.05)
+						library.greenhealth.From = Vector2.new(head2.X - ratio*1.8, root2.Y + ratio*0.5)
+
+						if teamcheck.teamcheck == true then
+							if newplr.TeamColor == plr.TeamColor then
+								library.box.Color = teamcheck.green
+								library.tracer.Color = teamcheck.green
+							else 
+								library.box.Color = teamcheck.red
+								library.tracer.Color = teamcheck.red
+							end
+						end
+
+						Visibility(true)
+					else 
+						Visibility(false)
+					end
+				else 
+					Visibility(false)
+					if game.Players:FindFirstChild(newplr.Name) == nil then
+						connection:Disconnect()
+					end
+				end
+			end)
+		end
+		coroutine.wrap(ESP)()
+	end)
+end)
+
+touch_app_6.Name = "touch_app"
+touch_app_6.Parent = ESP
+touch_app_6.BackgroundTransparency = 1
+touch_app_6.LayoutOrder = 5
+touch_app_6.Position = UDim2.new(0.0353425145, 0, -0.00632750988, 0)
+touch_app_6.Size = UDim2.new(0, 31, 0, 29)
+touch_app_6.ZIndex = 3
+touch_app_6.Image = "rbxassetid://3926305904"
+touch_app_6.ImageRectOffset = Vector2.new(84, 204)
+touch_app_6.ImageRectSize = Vector2.new(36, 36)
+
+UIListLayout.Parent = ScriptHolder
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.0199999996, 0)
+end)
